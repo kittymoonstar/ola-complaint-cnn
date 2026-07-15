@@ -57,9 +57,9 @@ Label Smoothing, AdamW + Warmup/Cosine, Early Stopping을 적용했습니다.
 
 ```bash
 # 1) AI Hub에서 데이터 다운로드 (아래 '데이터' 참고) 후 재크롭
+# (카테고리별 고화질 기준 우선 수집 → 부족한 카테고리는 스크립트 내
+#  완화 기준(fallback)으로 자동 보충하는 2단계 로직이 포함되어 있습니다)
 python data_pipeline/prepare_dataset7_more_data.py
-# 보행방해물이 목표치에 못 미치면 이어서 채우기:
-python data_pipeline/prepare_dataset7_1_fill.py
 
 # 2) dataset/ 폴더를 zip으로 압축해 구글 드라이브에 업로드 후,
 #    training/train_model_pytorch_3.ipynb 를 Colab(GPU)에서 실행
