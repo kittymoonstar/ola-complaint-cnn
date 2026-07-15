@@ -51,7 +51,7 @@ Label Smoothing, AdamW + Warmup/Cosine, Early Stopping을 적용했습니다.
 - 비교 모델: 직접 설계 CNN (86.3%, 입력 160×160, 약 5MB)
 - 선택된 모델만 지연 로드, 불법주정차 분류 시 Tesseract.js로 차량번호 OCR
 
-추론 코드는 [`web/complaint-image.js`](web/complaint-image.js) 참고.
+프론트엔드 추론 로직(onnxruntime-web 기반)은 이 저장소에는 포함하지 않았습니다.
 
 ## 재현 방법
 
@@ -64,7 +64,7 @@ python data_pipeline/prepare_dataset7_1_fill.py
 # 2) dataset/ 폴더를 zip으로 압축해 구글 드라이브에 업로드 후,
 #    training/train_model_pytorch_3.ipynb 를 Colab(GPU)에서 실행
 
-# 3) ONNX 내보내기: training/export_both_onnx_colab.py 를 Colab 셀에 붙여넣어 실행
+# 3) ONNX 변환: PyTorch 모델을 torch.onnx.export()로 opset 18 ONNX로 내보냅니다. (변환 스크립트는 비공개)
 ```
 
 ## 데이터
